@@ -138,7 +138,7 @@ class AdImage extends AbstractCrudObject {
 
     $data = $response->getContent()['data'];
     if ($data) {
-      $this->setData((array) $data[0]);
+      $this->setDataWithoutValidation((array) $data[0]);
     }
 
     $this->clearHistory();

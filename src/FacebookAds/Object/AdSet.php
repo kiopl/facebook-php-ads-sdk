@@ -37,20 +37,10 @@ class AdSet extends AbstractArchivableCrudObject
   use AdLabelAwareCrudObjectTrait;
 
   /**
-   * @var string
-   */
-  const STATUS_ACTIVE = 'ACTIVE';
-
-  /**
-   * @var string
-   */
-  const STATUS_PAUSED = 'PAUSED';
-
-  /**
    * @return string
    */
   protected function getEndpoint() {
-    return 'adcampaigns';
+    return 'adsets';
   }
 
   /**
@@ -61,20 +51,13 @@ class AdSet extends AbstractArchivableCrudObject
   }
 
   /**
-   * @return string
-   */
-  public function getStatusFieldName() {
-    return AdSetFields::CAMPAIGN_STATUS;
-  }
-
-  /**
    * @param array $fields
    * @param array $params
    * @return Cursor
    */
-  public function getAdGroups(
+  public function getAds(
     array $fields = array(), array $params = array()) {
-    return $this->getManyByConnection(AdGroup::className(), $fields, $params);
+    return $this->getManyByConnection(Ad::className(), $fields, $params);
   }
 
   /**

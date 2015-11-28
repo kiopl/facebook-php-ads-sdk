@@ -84,7 +84,7 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
    */
   protected function createObject(array $object_data) {
     $object = clone $this->objectPrototype;
-    $object->setData($object_data);
+    $object->setDataWithoutValidation($object_data);
 
     return $object;
   }
